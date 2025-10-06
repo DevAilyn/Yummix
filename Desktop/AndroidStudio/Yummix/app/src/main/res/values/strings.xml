@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Yummix</string>
+    <string name="home_title">¡Bienvenido a Yummix!</string>
+    <string name="home_subtitle">Explora recetas deliciosas organizadas por categorías</string>
+    <string name="button_start">Empieza ahora</string>
+    <string name="category_breakfast_dinner">Desayunos y Cenas</string>
+    <string name="category_lunch">Almuerzos</string>
+    <string name="category_drinks">Bebidas</string>
+    <string name="category_desserts">Postres</string>
 </resources>
