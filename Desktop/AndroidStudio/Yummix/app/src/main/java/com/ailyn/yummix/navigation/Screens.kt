@@ -1,7 +1,5 @@
 // navigation/Screens.kt
-
 package com.ailyn.yummix.navigation
-
 
 object Screens {
     const val HOME = "home"
@@ -10,4 +8,5 @@ object Screens {
     const val LUNCH = "lunch"
     const val DRINKS = "drinks"
     const val DESSERTS = "desserts"
+    const val RECIPE_DETAIL = "recipe_detail/{recipeId}"
 }

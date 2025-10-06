@@ -14,28 +14,24 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.layout.ContentScale
 import com.ailyn.yummix.R
 import com.ailyn.yummix.ui.theme.Black
 import com.ailyn.yummix.ui.theme.White
-import com.ailyn.yummix.ui.theme.YummixTheme
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.layout.ContentScale
 import com.ailyn.yummix.ui.theme.AppImportant
+import com.ailyn.yummix.ui.theme.YummixTheme
 
 @Composable
-fun HomeScreen(
-    onNavigateToCategories: () -> Unit // 👈 Cambiado aquí
-) {
+fun HomeScreen(onNavigateToCategories: () -> Unit) {
     YummixTheme {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = White)
+                .background(White)
         ) {
-            // Imagen de fondo pegada al borde superior
             Image(
                 painter = painterResource(id = R.drawable.imagen_inicio),
-                contentDescription = "Imagen de fondo",
+                contentDescription = "Fondo",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -43,7 +39,6 @@ fun HomeScreen(
                     .align(Alignment.TopCenter)
             )
 
-            // Logo + Texto "Yummix" en el centro
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -52,13 +47,10 @@ fun HomeScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         painter = painterResource(id = R.drawable.logo),
-                        contentDescription = "Logo Yummix",
+                        contentDescription = "Logo",
                         modifier = Modifier.size(60.dp)
                     )
                     Spacer(modifier = Modifier.width(12.dp))
@@ -72,13 +64,9 @@ fun HomeScreen(
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Botón "Empieza ahora"
                 Button(
-                    onClick = onNavigateToCategories, // 👈 Cambiado aquí
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = AppImportant,
-                        contentColor = White
-                    ),
+                    onClick = onNavigateToCategories,
+                    colors = ButtonDefaults.buttonColors(containerColor = AppImportant, contentColor = White),
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(56.dp)
@@ -91,10 +79,9 @@ fun HomeScreen(
                 }
             }
 
-            // Decoración inferior (onda verde)
             Image(
                 painter = painterResource(id = R.drawable.barra_inferiorinicio),
-                contentDescription = "Imagen de fondo",
+                contentDescription = "Decoración inferior",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -104,12 +91,3 @@ fun HomeScreen(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    YummixTheme {
-        HomeScreen(onNavigateToCategories = {}) // 👈 Cambiado aquí
-    }
-}
-
