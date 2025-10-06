@@ -2,10 +2,15 @@ package com.ailyn.appyummix.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+// Colores de la marca Yummix
+val YummixOrange = Color(0xFFFFD275)
+val BackgroundGray = Color(0xFFF5F5F5)
+val AccentGreen = Color(0xFF7EC19E)
+val TextBlack = Color(0xFF000000)
+val ContainerWhite = Color(0xFFFFFFFF)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+// Colores por categoría
+val BreakfastColor = Color(0xFFE3A587)
+val LunchColor = Color(0xFFABD7A9)
+val DrinksColor = Color(0xFF90E0EF)
+val DessertsColor = Color(0xFFCDB4DB)
