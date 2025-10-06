@@ -20,7 +20,7 @@ val Desserts = Color(0xFFCDB4DB)         // CD B4 DB
 // Paleta para temas
 val Primary = AppPrimary
 val PrimaryDark = Color(0xFFE6B866) // Versión más oscura de AppPrimary
-val Secondary = AppAccent          // ✅ Usamos el verde decorativo como secundario
+val Secondary = AppAccent
 val Background = AppBackground
 val Surface = White
 val OnPrimary = Black
