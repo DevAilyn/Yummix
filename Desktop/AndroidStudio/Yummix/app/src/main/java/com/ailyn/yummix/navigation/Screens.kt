@@ -1,12 +1,12 @@
-// navigation/Screens.kt
 package com.ailyn.yummix.navigation
+
+// Define las rutas de navegación de la app
 
 object Screens {
     const val HOME = "home"
     const val CATEGORIES = "categories"
-    const val BREAKFAST_DINNER = "breakfast_dinner"
-    const val LUNCH = "lunch"
-    const val DRINKS = "drinks"
-    const val DESSERTS = "desserts"
-    const val RECIPE_DETAIL = "recipe_detail/{recipeId}"
+    const val RECIPE_DETAIL = "recipe_detail"
+
+    // Genera la ruta dinámica para el detalle de una receta
+    fun recipeDetailRoute(recipeId: Int) = "$RECIPE_DETAIL/$recipeId"
 }

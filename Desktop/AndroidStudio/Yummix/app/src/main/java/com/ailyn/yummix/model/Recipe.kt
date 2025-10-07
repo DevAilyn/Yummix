@@ -1,7 +1,8 @@
-// model/Recipe.kt
 package com.ailyn.yummix.model
 
 import androidx.annotation.DrawableRes
+
+// Modelo de datos para una receta
 
 data class Recipe(
     val id: Int,

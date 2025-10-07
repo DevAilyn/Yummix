@@ -27,7 +27,7 @@ fun YummixNavHost(
             CategoriesScreen(
                 onNavigateToHome = { navController.popBackStack(Screens.HOME, inclusive = false) },
                 onNavigateToRecipeDetail = { recipeId ->
-                    navController.navigate("${Screens.RECIPE_DETAIL}/$recipeId")
+                    navController.navigate(Screens.recipeDetailRoute(recipeId))
                 }
             )
         }
@@ -37,7 +37,11 @@ fun YummixNavHost(
             arguments = listOf(navArgument("recipeId") { type = NavType.IntType })
         ) { backStackEntry ->
             val recipeId = backStackEntry.arguments?.getInt("recipeId") ?: return@composable
-            RecipeDetailScreen(recipeId = recipeId, onBack = { navController.popBackStack() })
+            RecipeDetailScreen(
+                recipeId = recipeId,
+                onBack = { navController.popBackStack() }
+            )
         }
+
     }
 }

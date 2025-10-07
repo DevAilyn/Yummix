@@ -45,7 +45,7 @@ fun CategoriesScreen(
     // Detectar si es tablet o celular
     val configuration = LocalConfiguration.current
     val screenWidthDp = configuration.screenWidthDp
-    val isTablet = screenWidthDp >= 600 // Ajusta este valor según tu definición de tablet
+    val isTablet = screenWidthDp >= 600
 
     // Número de columnas: 2 si es tablet y "Todo", 1 si es celular o categoría específica
     val columns = if (selectedCategory == null && isTablet) 2 else 1
@@ -55,29 +55,19 @@ fun CategoriesScreen(
             .fillMaxSize()
             .background(AppBackground)
     ) {
-        // Imagen decorativa superior (pegada al borde)
-        androidx.compose.foundation.Image(
-            painter = painterResource(id = R.drawable.barrasuperior_categorias),
-            contentDescription = "Decoración superior",
-            contentScale = ContentScale.FillWidth,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(180.dp)
-                .align(Alignment.TopCenter)
-        )
 
         // Título y subtítulo
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 20.dp, start = 24.dp, end = 24.dp)
+                .padding(top = 50.dp, start = 24.dp, end = 24.dp)
                 .align(Alignment.TopStart)
         ) {
             Text(
                 text = "Bienvenido",
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
-                color = Black
+                color = AppPrimary
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
@@ -95,7 +85,7 @@ fun CategoriesScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
-                .padding(top = 120.dp) // Ajusta según la imagen superior
+                .padding(top = 140.dp) // Ajusta según la imagen superior
                 .height(60.dp)
         ) {
             // Botón "Todo"
@@ -146,7 +136,7 @@ fun CategoriesScreen(
             columns = GridCells.Fixed(columns),
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 200.dp, bottom = 70.dp) // espacio para barra superior e inferior
+                .padding(top = 230.dp, bottom = 70.dp)
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)

@@ -1,6 +1,7 @@
-// ui/components/RecipeCard.kt
 package com.ailyn.yummix.ui.components
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -15,18 +16,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ailyn.yummix.R
 import com.ailyn.yummix.model.Category
 import com.ailyn.yummix.model.Recipe
 import com.ailyn.yummix.ui.theme.*
-import androidx.compose.foundation.background
 
-/**
- * Tarjeta visual de una receta con imagen, nombre, categoría y botón de acción.
- */
 @Composable
 fun RecipeCard(
     recipe: Recipe,
@@ -43,7 +39,6 @@ fun RecipeCard(
         colors = CardDefaults.cardColors(containerColor = White)
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            // Nombre de la receta
             Text(
                 text = recipe.name,
                 fontSize = 20.sp,
@@ -54,8 +49,7 @@ fun RecipeCard(
                     .align(Alignment.TopCenter)
             )
 
-            // Imagen del plato
-            androidx.compose.foundation.Image(
+            Image(
                 painter = painterResource(id = recipe.imageRes),
                 contentDescription = recipe.name,
                 contentScale = ContentScale.Crop,
@@ -66,7 +60,6 @@ fun RecipeCard(
                     .clip(RoundedCornerShape(16.dp))
             )
 
-            // Categoría con indicador de color
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
@@ -78,7 +71,7 @@ fun RecipeCard(
                         .size(12.dp)
                         .clip(CircleShape)
                         .background(
-                            color = when (recipe.category) {
+                            when (recipe.category) {
                                 Category.BREAKFAST_DINNER -> BreakfastDinner
                                 Category.LUNCH -> Lunch
                                 Category.DRINK -> Drinks
@@ -99,7 +92,6 @@ fun RecipeCard(
                 )
             }
 
-            // Botón "Ver receta" (ícono PNG)
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
@@ -107,89 +99,12 @@ fun RecipeCard(
                     .clickable { onClick() },
                 contentAlignment = Alignment.Center
             ) {
-                androidx.compose.foundation.Image(
+                Image(
                     painter = painterResource(id = R.drawable.ver_recetalogo),
                     contentDescription = "Ver receta",
                     modifier = Modifier.size(50.dp)
                 )
             }
         }
-    }
-}
-
-// Previsualizaciones por categoría
-@Preview(showBackground = true, name = "Desayuno")
-@Composable
-fun RecipeCardPreview_Breakfast() {
-    YummixTheme {
-        RecipeCard(
-            recipe = Recipe(
-                id = 1,
-                name = "Omelette de Champiñones",
-                imageRes = R.drawable.omelette_champinones,
-                category = Category.BREAKFAST_DINNER,
-                timeMinutes = 15,
-                ingredients = emptyList(),
-                steps = emptyList()
-            ),
-            onClick = {}
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Almuerzo")
-@Composable
-fun RecipeCardPreview_Lunch() {
-    YummixTheme {
-        RecipeCard(
-            recipe = Recipe(
-                id = 2,
-                name = "Tallarines con Carne",
-                imageRes = R.drawable.tallarines_carne,
-                category = Category.LUNCH,
-                timeMinutes = 25,
-                ingredients = emptyList(),
-                steps = emptyList()
-            ),
-            onClick = {}
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Bebida")
-@Composable
-fun RecipeCardPreview_Drink() {
-    YummixTheme {
-        RecipeCard(
-            recipe = Recipe(
-                id = 3,
-                name = "Limonada con Hierbabuena",
-                imageRes = R.drawable.limonada_hierbabuena,
-                category = Category.DRINK,
-                timeMinutes = 5,
-                ingredients = emptyList(),
-                steps = emptyList()
-            ),
-            onClick = {}
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Postre")
-@Composable
-fun RecipeCardPreview_Dessert() {
-    YummixTheme {
-        RecipeCard(
-            recipe = Recipe(
-                id = 4,
-                name = "Cheesecake de Frutos Rojos",
-                imageRes = R.drawable.cheese_frutosrojos,
-                category = Category.DESSERT,
-                timeMinutes = 60,
-                ingredients = emptyList(),
-                steps = emptyList()
-            ),
-            onClick = {}
-        )
     }
 }

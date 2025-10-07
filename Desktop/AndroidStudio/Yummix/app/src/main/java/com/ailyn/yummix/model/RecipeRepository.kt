@@ -3,6 +3,8 @@ package com.ailyn.yummix.model
 
 import com.ailyn.yummix.R
 
+// Repositorio estático con todas las recetas de la app
+
 object RecipeRepository {
     val allRecipes = listOf(
         // Desayunos y Cenas
